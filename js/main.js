@@ -128,7 +128,9 @@ document.querySelectorAll(".thumbnail").forEach((thumbnail, index) => {
     modalIndex.textContent = index + 1;
     modalLink.href = content.link;
 
-    modal.style.display = "block";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
   });
 });
 

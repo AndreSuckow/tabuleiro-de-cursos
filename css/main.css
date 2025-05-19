@@ -437,11 +437,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
   background-color: var(--roxo);
   border-radius: 50%;
   font-size: 40px;
+  min-width: 11%;
+  padding: 1rem;
 }
 
 #modal-title {
@@ -477,7 +477,6 @@ body {
   font-family: vivoTypeRegular;
   color: black;
   width: 50%;
-  margin-left: 40px;
 }
 
 .close {
@@ -488,6 +487,11 @@ body {
   cursor: pointer;
   color: var(--roxo);
   font-size: xxx-large;
+  transition: 1s ease-in;
+}
+
+.close:hover {
+  transform: rotateX(190deg);
 }
 
 @media (max-width: 1550px) {
@@ -500,7 +504,7 @@ body {
 @media (max-width: 1305px) {
   #modal-link {
     font-size: 1.2rem;
-    padding: 4px 25px;
+    padding: 10px 4%;
   }
 
   #modal-text {
@@ -508,13 +512,14 @@ body {
   }
 
   #modal-index {
-    width: 20%;
+    width: 10%;
   }
 }
 
 @media (max-width: 1200px) {
   #modal-title {
     font-size: 1.8rem;
+    max-width: 78%;
   }
 }
 
@@ -531,6 +536,7 @@ body {
 
   #modal-index {
     width: 13%;
+    padding: 0.3rem;
 }
 
 }
