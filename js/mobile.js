@@ -3,9 +3,12 @@
     }
 
     function checkOrientation() {
+      const mainElement = document.getElementById('main')
       const warning = document.getElementById('rotate-warning');
+
       if (isMobile() && window.matchMedia("(orientation: portrait)").matches) {
         warning.style.display = 'flex';
+        
       } else {
         warning.style.display = 'none';
       }
