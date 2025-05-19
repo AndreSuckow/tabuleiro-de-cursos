@@ -6,6 +6,10 @@
       const mainElement = document.getElementById('main')
       const warning = document.getElementById('rotate-warning');
 
+      if (isMobile()) {
+        mainElement.style.height = '95%';
+      }
+
       if (isMobile() && window.matchMedia("(orientation: portrait)").matches) {
         warning.style.display = 'flex';
         
