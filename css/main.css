@@ -534,9 +534,18 @@ body {
     width: 70%;
   }
 
+  .modal-content {
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem
+  }
+
   #modal-index {
-    width: 13%;
-    padding: 0.3rem;
+    width: 11%;
+    padding: 0.2rem;
 }
 
 }
