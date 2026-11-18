@@ -118,30 +118,54 @@ const modalIndex = document.getElementById("modal-index");
 const modalText = document.getElementById("modal-text");
 const modalLink = document.getElementById("modal-link");
 const closeModal = document.querySelector(".close");
+let activeThumbnail;
 
-// Abrindo a Modal ao clicar em uma Imagem
 document.querySelectorAll(".thumbnail").forEach((thumbnail, index) => {
-  thumbnail.addEventListener("click", () => {
-    const content = modalContent[index];
+  const content = modalContent[index];
+  thumbnail.tabIndex = 0;
+  thumbnail.setAttribute("role", "button");
+  thumbnail.setAttribute("aria-label", `Abrir curso: ${content.title}`);
+
+  const openModal = () => {
     modalTitle.textContent = content.title;
     modalText.textContent = content.text;
     modalIndex.textContent = index + 1;
     modalLink.href = content.link;
-
+    modalLink.hidden = content.link === "#";
     modal.style.display = "flex";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
+    modal.setAttribute("aria-hidden", "false");
+    activeThumbnail = thumbnail;
+    closeModal.focus();
+  };
+
+  thumbnail.addEventListener("click", openModal);
+  thumbnail.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openModal();
+    }
   });
 });
 
-// Fechando a Modal
-closeModal.addEventListener("click", () => {
+function hideModal() {
   modal.style.display = "none";
-});
+  modal.setAttribute("aria-hidden", "true");
+  if (activeThumbnail) {
+    activeThumbnail.focus();
+    activeThumbnail = null;
+  }
+}
 
-// Fechando Modal ao clicar fora do Conteúdo
+closeModal.addEventListener("click", hideModal);
+
 window.addEventListener("click", (event) => {
   if (event.target === modal) {
-    modal.style.display = "none";
+    hideModal();
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && modal.style.display === "flex") {
+    hideModal();
   }
 });

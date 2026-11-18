@@ -3,23 +3,23 @@
 
 @font-face {
   font-family: vivoTypeRegular;
-  src: url("../fonts/woff/VivoType-Regular.woff") format("woff"); /* primeira opção */
-  src: url("../fonts/woff2/VivoType-Regular.woff2") format("woff"); /* segunda opção */
-  src: url("../fonts/otf/VivoType-Regular.otf") format("otf"); /* terceira opção */
+  src: url("../fonts/woff2/VivoType-Regular.woff2") format("woff2"),
+    url("../fonts/woff/VivoType-Regular.woff") format("woff"),
+    url("../fonts/otf/VivoType-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: vivoTypeLight;
-  src: url("../fonts/woff/VivoType-Light.woff") format("woff"); /* primeira opção */
-  src: url("../fonts/woff2/VivoType-Light.woff2") format("woff"); /* segunda opção */
-  src: url("../fonts/otf/VivoType-Light.otf") format("otf"); /* terceira opção */
+  src: url("../fonts/woff2/VivoType-Light.woff2") format("woff2"),
+    url("../fonts/woff/VivoType-Light.woff") format("woff"),
+    url("../fonts/otf/VivoType-Light.otf") format("opentype");
 }
 
 @font-face {
   font-family: vivoTypeBold;
-  src: url("../fonts/woff/VivoType-Bold.woff") format("woff"); /* primeira opção */
-  src: url("../fonts/woff2/VivoType-Bold.woff2") format("woff"); /* segunda opção */
-  src: url("../fonts/otf/VivoType-Bold.otf") format("otf"); /* terceira opção */
+  src: url("../fonts/woff2/VivoType-Bold.woff2") format("woff2"),
+    url("../fonts/woff/VivoType-Bold.woff") format("woff"),
+    url("../fonts/otf/VivoType-Bold.otf") format("opentype");
 }
 
 :root {
@@ -41,35 +41,21 @@
 * {
   margin: 0;
   padding: 0;
-  /* No text select */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   box-sizing: border-box;
 }
 
-*:focus {
-  outline: none;
+*:focus-visible {
+  outline: 3px solid var(--rosa);
+  outline-offset: 3px;
 }
 html,
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background-color: #393939;
   font-family: "vivoTypeRegular";
   color: var(--branco);
-}
-
-main {
-  position: absolute;
-  background-color: transparent;
-  width: 1366px;
-  height: 768px;
-  /* border: 1px solid; */
 }
 
 h1 {
